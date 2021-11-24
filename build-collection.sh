@@ -7,9 +7,10 @@ cd workdir
 
 sed -i "${GALAXY_YML}" \
     -e "s/\(^namespace: \)${UPSTREAM_NS}/\1${DOWNSTREAM_NS}/"
+
 if [ -n "${RELEASE_VERSION}" ]; then
   sed -i "${GALAXY_YML}" \
       -e "s/^\(version: \).*$/\1\"${RELEASE_VERSION}\"/"
 fi
-git diff .
+git diff --no-color .
 ansible-galaxy collection build .
