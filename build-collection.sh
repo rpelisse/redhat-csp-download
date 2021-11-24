@@ -4,7 +4,7 @@ readonly UPSTREAM_NS='middleware_automation'
 readonly DOWNSTREAM_NS='redhat'
 
 cd workdir
-
+echo "RELEASE_VERSION: ${RELEASE_VERSION}"
 echo -n "Change collection namespace from ${UPSTREAM_NS} to ${DOWNSTREAM_NS}..."
 sed -i "${GALAXY_YML}" \
     -e "s/\(^namespace: \)${UPSTREAM_NS}/\1${DOWNSTREAM_NS}/"
